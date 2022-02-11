@@ -13,7 +13,6 @@ const [data, setData] = useState({
   error:null,
   loading: false,
 });
-
 const history = useHistory();
 
 const {email, password, error, loading} =data;
