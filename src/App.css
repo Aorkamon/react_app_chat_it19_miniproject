@@ -1,4 +1,9 @@
 /*root in app*/
+
+* {
+  box-sizing: border-box;
+}
+
 @media screen and (max-width: 767px) {
   .home_container {
     grid-template-columns: 2fr 3fr;
