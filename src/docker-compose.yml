@@ -1,0 +1,10 @@
+version: "3"
+
+services:
+  testservice:
+    stdin_open: true
+    build: .
+    ports:
+      - "3032:80"
+    volumes:
+      - ./src:/app/src
