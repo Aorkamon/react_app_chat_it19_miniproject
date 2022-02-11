@@ -1,0 +1,47 @@
+:root {
+    --color-1: #242526;
+    --color-2: white;
+    --color-3: #0084ff;
+    --color-4: grey;
+    --color-5: #eb4034;
+    --color-6: #333;
+  }
+  
+/* Register */
+section .form {
+    margin-top: 30px;
+    padding: 0px 20px;
+  }
+  .input_container {
+    margin-top: 20px;
+  }
+  .input_container input {
+    width: 100%;
+    padding: 10px;
+    outline: none;
+    margin-top: 10px;
+    border: 1px solid var(--color-6);
+    border-radius: 5px;
+  }
+  .btn_container {
+    margin: 10px 0px;
+    text-align: center;
+  }
+  .btn {
+    padding: 10px;
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid var(--color-4);
+    background: var(--color-1);
+    color: var(--color-2);
+    cursor: pointer;
+    transition: 0.3s ease-in-out all;
+    font-size: 16px;
+  }
+  .btn:hover {
+    transform: scale(1.05);
+  }
+  .error {
+    text-align: center;
+    color: var(--color-5);
+  }
