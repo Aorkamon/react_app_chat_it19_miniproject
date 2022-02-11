@@ -11,6 +11,7 @@ import {
 import { getDoc, doc, updateDoc } from "firebase/firestore";
 import Delete from "../components/svg/Delete";
 import { useHistory } from "react-router-dom";
+import Moment from 'react-moment'
 import "./Profile.css";
 
 const Profile = () => {
@@ -93,7 +94,8 @@ const Profile = () => {
           <h3>{user.name}</h3>
           <p>{user.email}</p>
           <hr />
-          <small>Joined on: {user.createdAt.toDate().toDateString()}</small>
+          <small> Join on : <Moment format='Do MMMM YYYY'>{user.createdAt.toDate().toString()}</Moment>
+          </small>
         </div>
       </div>
     </section>

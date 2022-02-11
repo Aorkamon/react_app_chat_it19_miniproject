@@ -3,6 +3,8 @@ import Img from "../image1.jpg";
 import { onSnapshot, doc } from "firebase/firestore";
 import { db } from "../firebase";
 
+import './User.css'
+
 const User = ({ user1, user, selectUser, chat }) => {
   const user2 = user?.uid;
   const [data, setData] = useState("");

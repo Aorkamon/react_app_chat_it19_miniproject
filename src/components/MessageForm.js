@@ -1,5 +1,6 @@
 import React from "react";
 import Attachment from "./svg/Attachment";
+import './Message.css';
 
 const MessageForm = ({ handleSubmit, text, setText, setImg }) => {
   return (

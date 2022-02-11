@@ -1,5 +1,7 @@
 import React, { useRef, useEffect } from "react";
 import Moment from "react-moment";
+import './Message.css';
+import 'moment/locale/th';
 
 const Message = ({ msg, user1 }) => {
   const scrollRef = useRef();
@@ -17,7 +19,7 @@ const Message = ({ msg, user1 }) => {
         {msg.text}
         <br />
         <small>
-          <Moment fromNow>{msg.createdAt.toDate()}</Moment>
+        <Moment format='Do MMMM YYYY HH:mm' fromDate>{msg.createdAt.toDate().toString()}</Moment>
         </small>
       </p>
     </div>
