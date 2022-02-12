@@ -5,6 +5,12 @@
     --color-4: grey;
     --color-5: #eb4034;
     --color-6: #333;
+
+    --color1: #E8505B;
+    --color2: #263238;
+    --color3: #455A64;
+    --color4: #EBEBEB;
+    --color5: #E0E0E0;
   }
 /*Messageform*/
 .message_form {
@@ -24,8 +30,17 @@
     outline: none;
     border: none;
   }
-  .message_form .btn {
-    margin-top: -10px;
+  .message_form .btnsend {
+  margin-bottom: 13px;
+  padding: 10px;
+  border-radius: 50px;
+  outline: none;
+  border: 0px;
+  background-color: var(--color2);
+  color: white;
+  cursor: pointer;
+  transition: 0.3s ease-in-out all;
+  font-size: 16px;
   }
   .message_wrapper {
     margin-top: 5px;
@@ -33,14 +48,14 @@
   }
   .message_wrapper img {
     width: 100%;
-    border-radius: 5px;
+    border-radius: 15px;
   }
   .message_wrapper p {
     padding: 10px;
     display: inline-block;
     max-width: 50%;
     text-align: left;
-    border-radius: 5px;
+    border-radius: 15px;
   }
   .message_wrapper small {
     display: inline-block;
@@ -51,11 +66,11 @@
     text-align: right;
   }
   .me {
-    background: var(--color-3);
+    background: var(--color1);
     color: white;
   }
   .friend {
-    background: var(--color-6);
+    background: var(--color5);
   }
 
   /*------------------------------------*/

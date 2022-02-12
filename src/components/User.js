@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import Img from "../image1.jpg";
 import { onSnapshot, doc } from "firebase/firestore";
 import { db } from "../firebase";
-
 import './User.css'
 
 const User = ({ user1, user, selectUser, chat }) => {
@@ -28,7 +27,7 @@ const User = ({ user1, user, selectUser, chat }) => {
             <img src={user.avatar || Img} alt="avatar" className="avatar" />
             <h4>{user.name}</h4>
             {data?.from !== user1 && data?.unread && (
-              <small className="unread">New</small>
+              <small className="unread">ใหม่</small>
             )}
           </div>
           <div

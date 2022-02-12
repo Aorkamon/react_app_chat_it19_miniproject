@@ -18,13 +18,13 @@ const MessageForm = ({ handleSubmit, text, setText, setImg }) => {
       <div>
         <input
           type="text"
-          placeholder="Type the message"
+          placeholder="พิมพ์ข้อความของคุณที่นี้"
           value={text}
           onChange={(e) => setText(e.target.value)}
         />
       </div>
       <div>
-        <button className="btn">Send</button>
+        <button className="btnsend">ส่งข้อความ</button>
       </div>
     </form>
   );

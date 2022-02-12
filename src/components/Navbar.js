@@ -22,20 +22,18 @@ const Navbar = () => {
   return (
     <nav>
       <h3>
-        <Link to="/">Messenger</Link>
+        <Link to="/">- ข้อความของคุณ -</Link>
       </h3>
       <div>
         {user ? (
           <>
-            <Link to="/profile">Profile</Link>
-            <button className="btn" onClick={handleSignout}>
-              Logout
-            </button>
+            <Link to="/profile">โปรไฟล์</Link>
+            <button className="btnNav" onClick={handleSignout}>ออกจากระบบ</button>
           </>
         ) : (
           <>
-            <Link to="/register">Register</Link>
-            <Link to="/login">Login</Link>
+            <Link to="/register">สมัครสมาชิก</Link>
+            <Link to="/login">ลงชื่อเข้าใช้</Link>
           </>
         )}
       </div>

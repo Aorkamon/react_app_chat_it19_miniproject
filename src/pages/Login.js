@@ -3,8 +3,8 @@ import { signInWithEmailAndPassword } from 'firebase/auth'
 import { auth, db } from '../firebase'
 import {updateDoc, doc} from 'firebase/firestore'
 import {useHistory} from 'react-router-dom'
-
-import "./Login_Register.css";
+import './Login_Register.css'
+import Logo from "../LogoLogin.png";
 
 const Login = () => {
 const [data, setData] = useState({
@@ -25,7 +25,7 @@ const handleSubmit = async (e) =>{
   e.preventDefault();
   setData({...data, error: null, loading: true});
   if(!email || !password ){
-    setData({...data, error: "Please try again"});
+    setData({...data, error: "กรุณากรอกข้อมูลใหม่อีกครั้ง"});
   }
   try {
     const result = await signInWithEmailAndPassword(
@@ -45,28 +45,28 @@ const handleSubmit = async (e) =>{
 
     history.replace("/");
   } catch (err) {
-    setData({...data,error: "Please try again", loading: false});
+    setData({...data,error: "กรุณากรอกข้อมูลใหม่อีกครั้ง", loading: false});
   }
 };
   return (
   <section>
-      <h1>Login</h1>
+      <h1>ลงชื่อเข้าใช้</h1>
+      <img src={Logo} className="logo"></img>
       <form className="form" onSubmit={handleSubmit}>
-
         <div className="input_container">
-          <label htmlFor="email">Email</label>
-          <input type="text" name="email" value={email} onChange={handleChange}/>
+          <input type="text" name="email" placeholder="Email" value={email} onChange={handleChange}/>
         </div>
 
         <div className="input_container">
-          <label htmlFor="password">Password</label>
-          <input type="password" name="password" value={password} onChange={handleChange}/>
+          <input type="password" name="password" placeholder="Password" value={password} onChange={handleChange}/>
         </div>
-          {error ? <p className="error">{error}</p>:null}
+          
         <div className="btn_container">
-            <button className="btn" disabled={loading}>{loading ? "Login...":'Login' }</button>
+            <button className="btn" disabled={loading}>{loading ? "รอสักครู่":'ลงชื่อเข้าใช้' }</button>
         </div>
-
+        <strong>
+        {error ? <p className="error">{error}</p>:null}
+        </strong>
       </form>
   </section>
     );

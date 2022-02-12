@@ -5,36 +5,47 @@
     --color-4: grey;
     --color-5: #eb4034;
     --color-6: #333;
+
+    --color1: #E8505B;
+    --color2: #263238;
+    --color3: #455A64;
+    --color4: #EBEBEB;
+    --color5: #E0E0E0;
   }
   
 /* Navbar */
+.Navbar{
+  color: var(--color2)
+}
+
 nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 70px;
-    padding: 0px 20px;
-    background-color: var(--color-1);
-    border-bottom: 1px solid var(--color-6);
-  }
-  nav a {
-    color: var(--color-2);
-    text-decoration: none;
-  }
-  nav div a {
-    margin-right: 20px;
-  }
-  
-  section {
-    max-width: 500px;
-    margin: 0 auto;
-    margin-top: 100px;
-    box-shadow: 1px 2px 10px var(--color-4);
-    padding: 10px 20px;
-    border-radius: 5px;
-  }
-  section h3 {
-    text-align: center;
-    font-size: 20px;
-    color: var(--color-4);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+  padding: 0px 20px;
+  background-color: #EBEBEB;
+  border-bottom: 1px solid var(--color5);
+}
+
+nav a {
+  color: var(--color2);
+  text-decoration: none;
+}
+
+nav div a {
+  margin-right: 20px;
+}
+
+.btnNav {
+  width: 130px;
+  padding: 8px;
+  border-radius: 50px;
+  outline: none;
+  border: 1px solid var(--color-4);
+  background: var(--color2);
+  color: var(--color-2);
+  cursor: pointer;
+  transition: 0.3s ease-in-out all;
+  font-size: 16px;
   }

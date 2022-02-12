@@ -5,7 +5,7 @@ import User from '../components/User'
 import MessageForm from '../components/MessageForm';
 import {ref, getDownloadURL, uploadBytes} from 'firebase/storage'
 import Message from '../components/Message';
-
+import Logo from '../LogoChat.png'
 import './Home.css'
 
 const Home = () => {
@@ -122,7 +122,11 @@ const Home = () => {
             />
             </>
           ): 
-          (<h3 className="no_conv">Select your user to start a new conversation</h3>)}
+          (<div>
+          <h3 className="no_conv">เริ่มต้นการสนทนาของคุณได้เลย</h3>
+            <img src={Logo} className="logoChat"></img>
+            </div>
+          )}
       </div>
     </div>
     );
