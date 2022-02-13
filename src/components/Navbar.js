@@ -21,19 +21,23 @@ const Navbar = () => {
   };
   return (
     <nav>
-      <h3>
+      <h3 title="คลิ้กเพื่อหน้าต่างเข้าสู่การสนทนาของคุณ">
         <Link to="/">- ข้อความของคุณ -</Link>
       </h3>
       <div>
         {user ? (
-          <>
-            <Link to="/profile">โปรไฟล์</Link>
-            <button className="btnNav" onClick={handleSignout}>ออกจากระบบ</button>
-          </>
+          <div>
+            <Link to="/profile" title="คลิ้ก เพื่อเข้าสู่หน้าต่างโปรไฟล์ของคุณ (สามารถเปลี่ยนรูปโปรไฟล์ของคุณได้ที่นี้)" >โปรไฟล์</Link>
+            <button className="btnNav" title="ออกจากระบบการใช้งาน" onClick={handleSignout} >ออกจากระบบ</button>
+          </div>
         ) : (
           <>
+            <label title="หากคุณยังไม่มีแอคเคาท์ สามารถสัมครสมาชิกใหม่ได้ที่นี้" >
             <Link to="/register">สมัครสมาชิก</Link>
+            </label>
+            <label title="ลงชื่อเพื่อเข้าใช้งานระบบ">
             <Link to="/login">ลงชื่อเข้าใช้</Link>
+            </label>
           </>
         )}
       </div>

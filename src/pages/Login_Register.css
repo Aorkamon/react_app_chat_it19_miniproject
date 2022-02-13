@@ -23,7 +23,7 @@ h1 {
 }
 
 section {
-  background-color: var(--color5);
+  background-color: var(--color4);
   max-width: 500px;
   margin: 0 auto;
   margin-top: 50px;
@@ -47,7 +47,7 @@ section .form {
   padding: 10px;
   outline: none;
   margin-top: 10px;
-  border: 0px solid var(--color-6);
+  border: 0px;
   border-radius: 10px;  
   }
 

@@ -13,6 +13,8 @@
     "react-moment": "^1.1.1",
     "react-router-dom": "^5.3.0",
     "react-scripts": "5.0.0",
+    "uifx": "^2.0.7",
+    "use-sound": "^4.0.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

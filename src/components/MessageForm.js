@@ -5,7 +5,7 @@ import './Message.css';
 const MessageForm = ({ handleSubmit, text, setText, setImg }) => {
   return (
     <form className="message_form" onSubmit={handleSubmit}>
-      <label htmlFor="img">
+      <label htmlFor="img" title ="คลิ้ก เพื่อส่งรูปภาพของคุณ (เมื่ออัปโหลดแล้วให้กดปุ่มส่งข้อความด้วย)">
         <Attachment />
       </label>
       <input
@@ -24,7 +24,7 @@ const MessageForm = ({ handleSubmit, text, setText, setImg }) => {
         />
       </div>
       <div>
-        <button className="btnsend">ส่งข้อความ</button>
+        <button className="btnsend" title="กดปุ่มเพื่อส่งข้อความของคุณ">ส่งข้อความ</button>
       </div>
     </form>
   );

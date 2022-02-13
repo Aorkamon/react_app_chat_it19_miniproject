@@ -71,7 +71,7 @@ const handSubmit = async e =>{
         <div className="input_container">
           <input type="password" name="password" placeholder="Password" value={password} onChange={handleChange}/>
         </div>
-        <div className="btn_container">
+        <div className="btn_container" title="ยืนยันการลงทะเบียน">
             <button className="btn" disabled={loading}>{loading ? 'รอสักครู่' : 'ลงทะเบียน'}</button>
         </div>
         <strong>

@@ -55,7 +55,7 @@ const Profile = () => {
 
   const deleteImage = async () => {
     try {
-      const confirm = window.confirm("Delete avatar?");
+      const confirm = window.confirm("ต้องการลบรูปโปรไฟล์ของคุณไหม?");
       if (confirm) {
         await deleteObject(ref(storage, user.avatarPath));
 
@@ -76,10 +76,12 @@ const Profile = () => {
           <img src={user.avatar || Img} alt="avatar" />
           <div className="overlay">
             <div>
-              <label htmlFor="photo">
+              <label htmlFor="photo" title="อัปโหลดรูปโปรไฟล์ของคุณ">
                 <Camera />
               </label>
+              <label title="ลบรูปโปรไฟล์ของคุณ" >
               {user.avatar ? <Delete deleteImage={deleteImage} /> : null}
+              </label>
               <input
                 type="file"
                 accept="image/*"
@@ -91,10 +93,10 @@ const Profile = () => {
           </div>
         </div>
         <div className="text_container">
-          <h3>{user.name}</h3>
+          <h2>{user.name}</h2>
           <p>{user.email}</p>
           <hr />
-          <small> Join on : <Moment format='Do MMMM YYYY'>{user.createdAt.toDate().toString()}</Moment>
+          <small> เข้าร่วมเมื่อ : <Moment format='Do MMMM YYYY'>{user.createdAt.toDate().toString()}</Moment>
           </small>
         </div>
       </div>

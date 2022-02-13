@@ -14,7 +14,7 @@ const Message = ({ msg, user1 }) => {
       className={`message_wrapper ${msg.from === user1 ? "own" : ""}`}
       ref={scrollRef}
     >
-      <p className={msg.from === user1 ? "me" : "friend"}>
+      <p className={msg.from === user1 ? "me" : "friend"} >
         {msg.media ? <img src={msg.media} alt={msg.text} /> : null}
         {msg.text}
         <br />
