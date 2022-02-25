@@ -9,13 +9,13 @@ import { getStorage } from 'firebase/storage';
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyCt-Pc9G2hblEjSFAj9knEl7VYza8CiHeA",
-  authDomain: "chat-react-app-test.firebaseapp.com",
-  projectId: "chat-react-app-test",
-  storageBucket: "chat-react-app-test.appspot.com",
-  messagingSenderId: "1067407853198",
-  appId: "1:1067407853198:web:cc70658739acd642466bdf",
-  databaseURL : "https://chat-react-app-test.firebaseio.com"
+  apiKey: "AIzaSyD10-NLMylGp00QGMKoPBrMo3UMVA1zTlI",
+  authDomain: "miniproject-chatapp-react.firebaseapp.com",
+  projectId: "miniproject-chatapp-react",
+  storageBucket: "miniproject-chatapp-react.appspot.com",
+  messagingSenderId: "1082897121927",
+  appId: "1:1082897121927:web:40cb877d9e8eb19767ee22",
+  databaseURL : "https://miniproject-chatapp-react.firebaseio.com"
 };
 
 // Initialize Firebase
