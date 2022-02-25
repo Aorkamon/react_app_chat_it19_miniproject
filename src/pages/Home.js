@@ -1,6 +1,16 @@
 import React, {useEffect, useState}from 'react';
 import {db, auth, storage} from '../firebase'
-import {collection, query, where, onSnapshot, addDoc, Timestamp, orderBy, setDoc, doc, getDoc, updateDoc} from 'firebase/firestore'
+import {collection, 
+        query, 
+        where, 
+        onSnapshot, 
+        addDoc, 
+        Timestamp, 
+        orderBy, 
+        setDoc, 
+        doc, 
+        getDoc, 
+        updateDoc} from 'firebase/firestore'
 import User from '../components/User'
 import MessageForm from '../components/MessageForm';
 import {ref, getDownloadURL, uploadBytes} from 'firebase/storage'
