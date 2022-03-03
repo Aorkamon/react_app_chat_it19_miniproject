@@ -5,7 +5,7 @@ import { signOut } from "firebase/auth";
 import { updateDoc, doc } from "firebase/firestore";
 import { AuthContext } from "../context/auth";
 import { useHistory } from "react-router-dom";
-import './Navbar.css';
+import '../CSS/Navbar.css';
 
 
 const Navbar = () => {

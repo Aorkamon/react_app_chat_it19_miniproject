@@ -3,8 +3,8 @@ import { signInWithEmailAndPassword } from 'firebase/auth'
 import { auth, db } from '../firebase'
 import {updateDoc, doc} from 'firebase/firestore'
 import {useHistory} from 'react-router-dom'
-import './Login_Register.css'
-import Logo from "../LogoLogin.png";
+import '../CSS/Login_Register.css'
+import Logo from "../Images/LogoLogin.png";
 
 const Login = () => {
 const [data, setData] = useState({

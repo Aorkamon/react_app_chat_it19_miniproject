@@ -3,8 +3,8 @@ import { createUserWithEmailAndPassword } from 'firebase/auth'
 import { auth, db } from '../firebase'
 import {setDoc ,doc, Timestamp} from 'firebase/firestore'
 import {useHistory} from 'react-router-dom'
-import "./Login_Register.css";
-import Logo from "../LogoRegister.png";
+import "../CSS/Login_Register.css";
+import Logo from "../Images/LogoRegister.png";
 
 const Register = () => {
 const [data, setData] = useState({

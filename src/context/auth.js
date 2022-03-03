@@ -18,6 +18,7 @@ const AuthProvider = ({ children }) => {
   if (loading) {
     return <Loading />;
   }
+  
   return (
     <AuthContext.Provider value={{ user }}>{children}</AuthContext.Provider>
   );

@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from "react";
 import Moment from "react-moment";
-import './Message.css';
+import '../CSS/Message.css';
 import 'moment/locale/th';
 
 const Message = ({ msg, user1 }) => {
@@ -17,11 +17,11 @@ const Message = ({ msg, user1 }) => {
       <p className={msg.from === user1 ? "me" : "friend"} >
         {msg.media ? <img src={msg.media} alt={msg.text} /> : null}
         {msg.text}
-        <br />
+        <br/>
         <small>
         <Moment format='Do MMMM YYYY HH:mm' fromDate>{msg.createdAt.toDate().toString()}</Moment>
-        </small>
-      </p>
+        </small> 
+      </p> 
     </div>
   );
 };

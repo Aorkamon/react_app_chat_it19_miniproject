@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import Img from "../profile.png";
+import Img from "../Images/profile.png";
 import { onSnapshot, doc } from "firebase/firestore";
 import { db } from "../firebase";
-import './User.css'
+import '../CSS/User.css'
 
 const User = ({ user1, user, selectUser, chat }) => {
   const user2 = user?.uid;

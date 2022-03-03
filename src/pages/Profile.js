@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Camera from "../components/svg/Camera";
-import Img from "../profile.png";
+import Img from "../Images/profile.png";
 import { storage, db, auth } from "../firebase";
 import {
   ref,
@@ -12,7 +12,7 @@ import { getDoc, doc, updateDoc } from "firebase/firestore";
 import Delete from "../components/svg/Delete";
 import { useHistory } from "react-router-dom";
 import Moment from 'react-moment'
-import "./Profile.css";
+import "../CSS/Profile.css";
 
 const Profile = () => {
   const [img, setImg] = useState("");

@@ -15,8 +15,8 @@ import User from '../components/User'
 import MessageForm from '../components/MessageForm';
 import {ref, getDownloadURL, uploadBytes} from 'firebase/storage'
 import Message from '../components/Message';
-import Logo from '../LogoChat.png'
-import './Home.css'
+import Logo from '../Images/LogoChat.png'
+import '../CSS/Home.css'
 
 const Home = () => {
   const [users, setUsers] = useState([])
@@ -27,7 +27,7 @@ const Home = () => {
 
   const user1 = auth.currentUser.uid
 
-  useEffect(() => {
+useEffect(() => {
     const userRef = collection(db, "users");
     // create query object 
     const q = query(userRef, where("uid", "not-in", [user1]))
