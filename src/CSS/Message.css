@@ -1,0 +1,117 @@
+:root {
+    --color-1: #242526;
+    --color-2: white;
+    --color-3: #0084ff;
+    --color-4: grey;
+    --color-5: #eb4034;
+    --color-6: #333;
+
+    --color1: #E8505B;
+    --color2: #263238;
+    --color3: #455A64;
+    --color4: #EBEBEB;
+    --color5: #E0E0E0;
+  }
+/*Messageform*/
+.message_form {
+    position: absolute;
+    bottom: 0;
+    left: 20%;
+    width: 100%;
+    height: 30px;
+    display: flex;
+    align-items: center;
+  }
+  .message_form input {
+    width: 40vw;
+    margin: 0px 10px 10px;
+    padding: 10px;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+  }
+  .message_form .btnsend {
+  margin-bottom: 13px;
+  padding: 10px;
+  border-radius: 50px;
+  outline: none;
+  border: 0px;
+  background-color: var(--color2);
+  color: white;
+  cursor: pointer;
+  transition: 0.3s ease-in-out all;
+  font-size: 16px;
+  }
+  .message_wrapper {
+    margin-top: 5px;
+    padding: 0px 5px;
+  }
+  .message_wrapper img {
+    width: 100%;
+    border-radius: 15px;
+  }
+  .message_wrapper p {
+    padding: 10px;
+    display: inline-block;
+    max-width: 50%;
+    text-align: left;
+    border-radius: 15px;
+  }
+  .message_wrapper small {
+    display: inline-block;
+    margin-top: 5px;
+    opacity: 0.7;
+  }
+  .message_wrapper.own {
+    text-align: right;
+  }
+  .me {
+    background: var(--color1);
+    color: white;
+  }
+  .friend {
+    background: var(--color5);
+  }
+
+  /*------------------------------------*/
+  @media screen and (max-width: 767px) {
+    .home_container {
+      grid-template-columns: 2fr 3fr;
+    }
+    .message_form {
+      left: 3%;
+      right: 0;
+      bottom: 5px;
+    }
+    .message_wrapper p {
+      max-width: 75%;
+    }
+  }
+  
+  @media screen and (max-width: 576px) {
+    .home_container {
+      grid-template-columns: 1fr 5fr;
+    }
+    .user_wrapper {
+      display: none;
+    }
+    .sm_container {
+      padding: 10px 0px;
+      text-align: center;
+      cursor: pointer;
+    }
+    .sm_screen {
+      display: inline-block;
+    }
+    .message_form input {
+      width: 50vw;
+      margin: 0px 10px;
+    }
+    .message_form .btn {
+      margin: 0px;
+    }
+  
+    .message_wrapper p {
+      max-width: 100%;
+    }
+  }
