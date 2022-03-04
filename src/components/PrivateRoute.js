@@ -11,7 +11,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
       exact
       render={(props) =>
         user ? <Component {...props} /> : <Redirect to="/login" />
-      }
+      }//ทดสอบ
     />
   );
 };
