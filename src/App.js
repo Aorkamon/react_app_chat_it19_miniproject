@@ -21,7 +21,7 @@ function App() {
           <PrivateRoute exact path= "/" component={Home}/>
       </Switch>
       </BrowserRouter>
-    </AuthProvider> //คำสั่งที่ใช้ในการทำงาน
+    </AuthProvider>
   );
 }
 
