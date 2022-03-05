@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { createUserWithEmailAndPassword } from 'firebase/auth'
-import { auth, db } from '../firebase'// auth และ db คือตัวแปรที่ทำการนำรหัสคีย์เข้ามาจาก firebase
+import { auth, db } from '../firebase'// auth และ db คือตัวแปรที่ทำการนำรหัสคีย์เข้ามาจาก firebase 
 import {setDoc ,doc, Timestamp} from 'firebase/firestore'
 import {useHistory} from 'react-router-dom'
 import "../CSS/Login_Register.css";
