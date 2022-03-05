@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { signInWithEmailAndPassword } from 'firebase/auth'
-import { auth, db } from '../firebase'
+import { auth, db } from '../firebase'// auth และ db คือตัวแปรที่ทำการนำรหัสคีย์เข้ามาจาก firebase
 import {updateDoc, doc} from 'firebase/firestore'
 import {useHistory} from 'react-router-dom'
 import '../CSS/Login_Register.css'
