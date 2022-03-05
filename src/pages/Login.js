@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { signInWithEmailAndPassword } from 'firebase/auth'
-import { auth, db } from '../firebase'// auth และ db คือตัวแปรที่ทำการนำรหัสคีย์เข้ามาจาก firebase
+import { auth, db } from '../firebase'  // auth และ db คือตัวแปรที่ทำการนำรหัสคีย์เข้ามาจาก firebase
 import {updateDoc, doc} from 'firebase/firestore'
 import {useHistory} from 'react-router-dom'
 import '../CSS/Login_Register.css'
@@ -13,37 +13,44 @@ const [data, setData] = useState({
   error:null,
   loading: false,
 });
-const history = useHistory();
 
-const {email, password, error, loading} =data;
+const {email, password, error, loading} = data;//เป็นการสร้างตัวแปรที่อยู๋ใน data เพื่อนำข้อมูลนี้ไปใช้ในการอ้างอิงเพื่อทำการเปรียบเทียบ
+
+const history = useHistory();//คำสั่งเข้าถึงฟังก์ชันต่างๆเพื่อนำทางไปยังหน้าเว็ปอื่นๆได้ แต่มีการกำหนดเงื่อนไขในการเข้าถึงหน้าเว็ปนั้นๆ
 
 const handleChange = e => {
-  setData({...data, [e.target.name]: e.target.value})
+  setData({...data, [e.target.name]: e.target.value})//คำสั่งในการพิมพ์ข้อมูลเมื่อมีการพิมพ์ข้อความ
 }
 
 const handleSubmit = async (e) =>{
   e.preventDefault();
+
   setData({...data, error: null, loading: true});
   if(!email || !password ){
     setData({...data, error: "กรุณากรอกข้อมูลใหม่อีกครั้ง"});
   }
-  try {
-    const result = await signInWithEmailAndPassword(
-      auth, 
-      email, 
-      password
-      );
-    await updateDoc(doc(db, 'users', result.user.uid), {
-      isOnline: true,
-    });
-    setData({ 
-      email:"", 
-      password:"", 
+  try {//คำสั่งในการจัดการและตรวจสอบกับข้อผิดพลาด
+
+    setData({//กำหนดข้อมูลของ data ให้เป็น null
+      email:"",
+      password:"",
       error:null,
       loading:null
     });
 
+    const result = await signInWithEmailAndPassword(//คำสั่งในการเข้าสู่ระบบของผู้ใช้จาก firebase/auth
+      auth, 
+      email, 
+      password
+      );
+
+    await updateDoc(doc(db, 'users', result.user.uid), {//คำสั่งในการเปลี่ยนแปลงข้อมูลใน cloud firebase โดยอาศัยข้อมูลที่เข้าสู่ระบบมาแล้ว
+      isOnline: true,//เปลี่ยนแปลงสถานะให้เป็น ออนไลน์
+    });
+
+
     history.replace("/");
+    
   } catch (err) {
     setData({...data,error: "กรุณากรอกข้อมูลใหม่อีกครั้ง", loading: false});
   }
