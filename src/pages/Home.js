@@ -51,7 +51,7 @@ useEffect(() => {
     setChat(user)//ให้เซตข้อมูลของฟังก์ชั่น setChat ตามข้อมูลของ user
 
     const user2 = user.uid //ตัวแปร user2 กำหนดให้ตัวเป็นการอ้างอิงถึง uid ของ user นั้น
-    const id = user1 > user2 ? `${user1 + user2}` : `${user2 + user1}`;
+    const id = user1 > user2 ? `${user1 + user2}` : `${user2 + user1}`;//************************* */
     //ตัวแปร id ให้มีการเปรียบเทียบเงื่อนไขว่่า ตัว user1 นั้น
 
     const msgsRef = collection(db, 'messages', id, 'chat');
