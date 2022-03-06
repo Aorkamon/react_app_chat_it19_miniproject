@@ -17,6 +17,7 @@ import "../CSS/Profile.css";
 const Profile = () => {
   const [img, setImg] = useState("");
   const [user, setUser] = useState();
+
   const history = useHistory("");
 
   useEffect(() => {
@@ -32,6 +33,7 @@ const Profile = () => {
           storage,
           `avatar/${new Date().getTime()} - ${img.name}`
         );
+
         try {
           if (user.avatarPath) {
             await deleteObject(ref(storage, user.avatarPath));
@@ -49,6 +51,7 @@ const Profile = () => {
           console.log(err.message);
         }
       };
+      
       uploadImg();
     }
   }, [img]);

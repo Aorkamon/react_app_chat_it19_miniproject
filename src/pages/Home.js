@@ -1,7 +1,7 @@
 import React, {useEffect, useState}from 'react';
 import {db, auth, storage} from '../firebase'
-import {collection, 
-        query, 
+import {collection, //คำสั่ง collecetion เป็นคำสั่งเข้าถึงต้วคอเลกชั่นหรือโฟลเดอร์ที่มีการเก็บข้อมูลหลายๆตัวไว้ในนั้น
+        query, //คำสั่ง query เป็นคำสั่งที่ไว้ใช้ในการสร้างแบบสอบถาม คล้ายๆกับภาษา SQL มักใช้ร่วมกับ where
         where, 
         onSnapshot, 
         addDoc, 
@@ -25,31 +25,37 @@ const Home = () => {
   const [img, setImg] = useState("");
   const [msgs, setMsgs] = useState([]);
 
-  const user1 = auth.currentUser.uid
+  const user1 = auth.currentUser.uid //คำสั่งในการกำหนดให้ตัวแปร user1 คือผู้ที่เข้าใช้งานอยู่ในปัจจุบันตอนนี้
+  //auth มาจากข้อมูลของบัญชีการเข้าในงาน, currentUser คือตัวuserที่กำลังเข้าใช้งานอยู๋ในปัจจุบันตอนนี้, uid คือตัวที่จะใช้ในการอ้างอิงเงื่อนไขต่างๆ
 
 useEffect(() => {
-    const userRef = collection(db, "users");
-    // create query object 
-    const q = query(userRef, where("uid", "not-in", [user1]))
-    // excute query object //
+
+    //รูปแบบคำสั่งในการดักฟังเอกสารหลายชุดในคอลเล็กชั่น---
+    const userRef = collection(db, "users"); //เรียกใช้ข้อมูลจากคอเล็กชั่นที่มีชื่อว่า users
+    const q = query(userRef, where("uid", "not-in", [user1]));
+    //ตัวแปร q ที่มีการทำ query โดยนำข้อมูลจากคอเล็กชั่น user มาเปรีบเทียบเงื่อนไข uid ของuser ไม่เท่ากับ ตัวแปร user1
+
     const unsub = onSnapshot(q, querySnapshot => {
-      let users= []
+      let users= []//*** 
       querySnapshot.forEach(doc=> {
-        users.push(doc.data())
+        users.push(doc.data())//**** 
       })
-      setUsers(users);
+      setUsers(users);//ให้ฟังก์ชั่นเซตค่าของ users หลังจากทำการ **** แล้ว
     })
+    //-----------------------------------------------
+
     return () => unsub();
   }, []);
 
-  const selectUser = async (user) => {
-    setChat(user)
+  const selectUser = async (user) => {//คำสั่งที่ใช้ในการเลือกผู้ที่ต้องการสนทนาด้วย
+    setChat(user)//ให้เซตข้อมูลของฟังก์ชั่น setChat ตามข้อมูลของ user
 
-    const user2 = user.uid
+    const user2 = user.uid //ตัวแปร user2 กำหนดให้ตัวเป็นการอ้างอิงถึง uid ของ user นั้น
     const id = user1 > user2 ? `${user1 + user2}` : `${user2 + user1}`;
+    //ตัวแปร id ให้มีการเปรียบเทียบเงื่อนไขว่่า ตัว user1 นั้น
 
     const msgsRef = collection(db, 'messages', id, 'chat');
-    const q = query(msgsRef, orderBy('createdAt', 'asc'))
+    const q = query(msgsRef, orderBy('createdAt', 'asc'))//สร้างแบบสอบถาม และกำหนดให้มีการเรียงลำดับข้อมูลแชทการสนทนา เรียงจากน้อยไปมาก
 
     onSnapshot(q, querySnapshot => {
       let msgs = []
@@ -59,16 +65,15 @@ useEffect(() => {
       setMsgs(msgs)
     })
 
-    // get last message betwwn loggin user and select users
+    //รับข้อความล่าสุดที่มีการสนทนากัน
     const docSnap = await getDoc(doc(db, 'lastMsg', id))
-    // if last message exists and message is from select user
+    //ถ้าข้อความล่าสุดนั้นมีอยู่ในคอเล็กชั่น และข้อความนั้นไม่ได้มากจากผู้ใช้ที่กำลังเข้าใช้ระบบอยู่ หรือ ข้อความนั้นต้องมากจากผู้ส่ง ที่อยู่ฝั่งซ้ายมือ
     if(docSnap.data() && docSnap.data().from !== user1){
-      // update last message doc, set unread = false
+      //ถ้าใช่ ให้ทำการอัปเดตข้อมูลข้อความล่าสุด ในคอเล็กชั่นlastMsg และเซตค่า unread ให้เป็น false
       await updateDoc(doc(db, 'lastMsg', id), {unread: false})
     }
   }
-
-  console.log(msgs)
+  //console.log(msgs)
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -104,8 +109,11 @@ useEffect(() => {
       media: url || "",
       unread: true,
     })
+
+    //เมื่อมีการส่งข้อความไปแล้ว ให้ทำการเคลียค่าออก ทั้งข้อความและรูปภาพ
     setText("");
     setImg(null);
+    //--------------------------------------------------------
   }
   return (
     <div className="home_container">
