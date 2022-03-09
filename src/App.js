@@ -26,3 +26,6 @@ function App() {
 }
 
 export default App;
+// exact ช่วยเปิด หน้า ไม่ซ้ำกัน
+// AuthProvider ตัวให้บริการ Auth ตรวจสอบบัญชีผู้ใช้งาน
+  
