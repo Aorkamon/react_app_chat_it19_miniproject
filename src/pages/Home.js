@@ -75,11 +75,11 @@ useEffect(() => {
   }
   //console.log(msgs)
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const handleSubmit = async (e) => { //คำสั่งเมื่อมีการกดปุ่ม Enter หรือปุ่มส่งข้อความ
+    e.preventDefault();//คำสั่งป้องกันไม่ให้ตัว Browser มีการ Reload หรือ refesh ถ้าไม่ใส่คำสั่งนี้ เมื้อกดปุ่มยันยันแล้ว Browser จะมีการ refesh หน้าตัวเอง
 
     const user2 = chat.uid
-    const id = user1 > user2 ? `${user1 + user2}` : `${user2 + user1}`;
+    const id = user1 > user2 ? `${user1 + user2}` : `${user2 + user1}`;//คำสั่งเช็คในการส่งข้อมูล
 
 
     let url;
