@@ -19,11 +19,7 @@ const User = ({ user1, user, selectUser, chat }) => { //
   return (
     <>
       <div
-
-        className={`user_wrapper ${chat.name === user.name && "selected_user"}`} //user_wrapper ระยะห่างของแต่ละ User
-        onClick={() => selectUser(user)}
-
-        className={`user_wrapper ${chat.name === user.name && "selected_user"}`}
+        className={`user_wrapper ${chat.name === user.name && "selected_user"}`}//user_wrapper ระยะห่างของแต่ละ User
         onClick={() => selectUser(user)} //ใช้คำสั่งคลิกที่ชื่อแชท เปรียบเทียบชื่อของผู้ใช้กับชื่อที่แสดงในแชทว่าใช่คนเดียวกันไหม และใช้คำสั่งselectUser เพื่อเลือกuserเพื่อสนทนา
 
       >
