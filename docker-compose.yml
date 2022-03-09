@@ -2,7 +2,7 @@ version: "3"
 
 services:
   nginx:
-    stdin_open: true
+    stdin_open: true 
     build: .
     ports:
       - "3032:80"
