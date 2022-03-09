@@ -52,7 +52,7 @@ useEffect(() => {
 
     const user2 = user.uid //ตัวแปร user2 กำหนดให้ตัวเป็นการอ้างอิงถึง uid ของ user นั้น
     const id = user1 > user2 ? `${user1 + user2}` : `${user2 + user1}`;
-    //ตัวแปร id ให้มีการเปรียบเทียบเงื่อนไขว่่า ตัว user1 นั้น
+    //คำสั่งในการโหลกข้อความแต่ละข้อความ ถ้าหากข้อความของตัว User 1 มากกว่าตัว User 2 ให้ทำการแสดงข้อมูลที่สนทนากันของ User1 และ User 2
 
     const msgsRef = collection(db, 'messages', id, 'chat');
     const q = query(msgsRef, orderBy('createdAt', 'asc'))//สร้างแบบสอบถาม และกำหนดให้มีการเรียงลำดับข้อมูลแชทการสนทนา เรียงจากน้อยไปมาก
@@ -62,7 +62,7 @@ useEffect(() => {
       querySnapshot.forEach(doc => {
         msgs.push(doc.data())
       })
-      setMsgs(msgs)
+      setMsgs(msgs);
     })
 
     //รับข้อความล่าสุดที่มีการสนทนากัน
@@ -75,12 +75,16 @@ useEffect(() => {
   }
   //console.log(msgs)
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const handleSubmit = async (e) => { //คำสั่งเมื่อมีการกดปุ่ม Enter หรือปุ่มส่งข้อความ
+    e.preventDefault();//คำสั่งป้องกันไม่ให้ตัว Browser มีการ Reload หรือ refesh ถ้าไม่ใส่คำสั่งนี้ เมื้อกดปุ่มยันยันแล้ว Browser จะมีการ refesh หน้าตัวเอง
 
     const user2 = chat.uid
-    const id = user1 > user2 ? `${user1 + user2}` : `${user2 + user1}`;
-
+    const id = user1 > user2 ? `${user1 + user2}` : `${user2 + user1}`; 
+    //เครื่องหมาย $ นี้หมายถึง ตัวที่เอาไว้เชื่อกับข้อความธรรมดา เช่น 
+    //console.log(`Fifteen is ${a + b} and
+    //not ${2 * a + b}.`);
+    // "Fifteen is 15 and
+    // not 20."
 
     let url;
     if (img) {
@@ -127,6 +131,7 @@ useEffect(() => {
             <>
           <div className="messages_user">
             <h3 className="title_message">{chat.name}</h3>
+            <h3>{auth.currentUser.uid}  {chat.uid}</h3>
           </div> 
           <div className="messages">
             {msgs.length ? msgs.map((msg, i) => 

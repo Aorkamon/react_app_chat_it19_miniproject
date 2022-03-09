@@ -44,7 +44,7 @@ const handSubmit = async e =>{//คำสั่งเมื่อการกด
 
     const result = await createUserWithEmailAndPassword( //สร้างตัวแปร result และในคำสั่งของ firebase/auth ในการสร้างบัญชีผู้ใช้งานด้วย email และ password
       auth, //เป็นการอ้างอิงถึงตัวคีย์ของ auth ที่เรากำหนดชื่อตัวเแปรเป็น auth
-      email, 
+      email,
       password
       );
 
