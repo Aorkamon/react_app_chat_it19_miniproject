@@ -49,7 +49,7 @@
 .messages {
   height: calc(100vh - 200px);
   overflow-y: auto;
-  border-bottom: 1px solid var(--color5);
+  
 }
 
 .logoChat {

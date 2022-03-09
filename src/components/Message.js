@@ -9,6 +9,7 @@ const Message = ({ msg, user1 }) => {
   useEffect(() => {
     scrollRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [msg]);//current เพื่อใช้หาค่าปัจจุบันของข้อความ โดยใช้คำสั่ง svroolIntoView
+  // === ใช้ในการเปรียบเทียบความเหมือนกัน/เป็นอย่างเดียวกัน (identically)
   return (
     <div
       className={`message_wrapper ${msg.from === user1 ? "own" : ""}`}

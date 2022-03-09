@@ -19,7 +19,7 @@ const User = ({ user1, user, selectUser, chat }) => {
   return (
     <>
       <div
-        className={`user_wrapper ${chat.name === user.name && "selected_user"}`}
+        className={`user_wrapper ${chat.name === user.name && "selected_user"}`} //user_wrapper ระยะห่างของแต่ละ User
         onClick={() => selectUser(user)}
       >
         <div className="user_info">
