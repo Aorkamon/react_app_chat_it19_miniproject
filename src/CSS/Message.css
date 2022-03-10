@@ -73,6 +73,8 @@
     background: var(--color5);
   }
 
+
+/*------------------------------------------*/
   .btnright{
     text-align: right;
     border-radius: 10px;
@@ -87,6 +89,8 @@
     display: none;
     font-display: none;
   }
+/*------------------------------------------*/
+
 
   /*------------------------------------*/
   @media screen and (max-width: 767px) {
