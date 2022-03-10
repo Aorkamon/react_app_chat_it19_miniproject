@@ -73,6 +73,21 @@
     background: var(--color5);
   }
 
+  .btnright{
+    text-align: right;
+    border-radius: 10px;
+    border: 1px solid var(--color-4);
+    font-size: 15px;
+    margin: 0px 10px 10px;
+    padding: 7px;
+    cursor: pointer;
+  }
+
+  .btnleft{
+    display: none;
+    font-display: none;
+  }
+
   /*------------------------------------*/
   @media screen and (max-width: 767px) {
     .home_container {

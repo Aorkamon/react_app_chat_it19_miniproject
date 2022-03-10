@@ -6,14 +6,15 @@ import '../CSS/User.css'
 
 const User = ({ user1, user, selectUser, chat }) => { //
   const user2 = user?.uid; //เช็คว่าเป็นผู้เข้าใช้คนไหน
-  const [data, setData] = useState(""); //
+  const [data, setData] = useState(""); //สร้างตัวแปรกำหนดค่าเริ่มต้นให้กับ data และสร้างฟังก์ชั่น setData
 
   useEffect(() => {
-    const id = user1 > user2 ? `${user1 + user2}` : `${user2 + user1}`; //
-    let unsub = onSnapshot(doc(db, "lastMsg", id), (doc) => {
-      setData(doc.data());
+    const id = user1 > user2 ? `${user1 + user2}` : `${user2 + user1}`; 
+    //เช็คข้อความล่าสุด ถ้า User1 มีข้อมูลแชทมากกว่า ให้ตรวจสอบ และเช็คข้อมูลทุกๆอัน แล้วนำข้อมูลมารวมกัน
+    let unsub = onSnapshot(doc(db, "lastMsg", id), (doc) => { //ดักฟังข้อมูลจากคอเล้กชั่น lastMsg
+      setData(doc.data());//กำหนดค่าฟังก์ชั่นให้กับตัวแปร setData
     });
-    return () => unsub();
+    return () => unsub();//
   }, []);
 
   return (
@@ -25,7 +26,7 @@ const User = ({ user1, user, selectUser, chat }) => { //
       >
         <div className="user_info">
           <div className="user_detail">
-            <img src={user.avatar || Img} alt="avatar" className="avatar" />
+            <img src={user.avatar || Img} alt="avatar" className="avatar" /*คำสั่งในการตรวจสอบรูปภาพโปรไฟล์ ถ้าหากไม่มีรูปโปรไฟล์ ให้ดึงรูปมาใช้จาก profileng*//>
             <h4>{user.name}</h4>
             {data?.from !== user1 && data?.unread && (
               <small className="unread">ใหม่</small> //
@@ -43,14 +44,10 @@ const User = ({ user1, user, selectUser, chat }) => { //
         )}
       </div>
       <div
-        onClick={() => selectUser(user)} //เมื่อเกิดการคลิกเพื่อใช้งานselectUser 
-        className={`sm_container ${chat.name === user.name && "selected_user"}`}
+        //onClick={() => selectUser(user)} //เมื่อเกิดการคลิกเพื่อใช้งานselectUser 
+        //className={`sm_container ${chat.name === user.name && "selected_user"}`}
       >
-        <img
-          src={user.avatar || Img}
-          alt="avatar"
-          className="avatar sm_screen"
-        />
+
       </div>
     </>
   );

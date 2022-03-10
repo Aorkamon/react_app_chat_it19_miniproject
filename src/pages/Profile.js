@@ -20,7 +20,7 @@ const Profile = () => {
   const history = useHistory(""); //คำสั่งเข้าถึงฟังก์ชันต่างๆเพื่อนำทางไปยังหน้าเว็ปอื่นๆได้ แต่มีการกำหนดเงื่อนไขในการเข้าถึงหน้าเว็ปนั้นๆ
 
   useEffect(() => { 
-    getDoc(doc(db, "users", auth.currentUser.uid)).then((docSnap) => {// รับมาค่ามา แล้วลง datebase และลง user collection ของ user userปัจจุบันเข้ามา แล้ว รับข้อมูลมา
+    getDoc(doc(db, "users", auth.currentUser.uid)).then((docSnap) => {// รับมาค่ามา จาก datebase  user collection ของ user userปัจจุบันเข้ามา แล้ว รับข้อมูลมา
       if (docSnap.exists) {  // รับข้อมูลที่มีอยู่
         setUser(docSnap.data()); // ให้ข้อมุลที่อยู่ ใน docSnap ไปไว้ใน ฟังชัน setUser
       }
@@ -28,7 +28,7 @@ const Profile = () => {
 
     if (img) { 
       const uploadImg = async () => {  //ประกาศฟังชัน  uploadImg  = async
-        const imgRef = ref( // ประกาศ imgRef = อ้างอิงรูปภาพมาจาก Storage  และ  collection avatar  วันที่อัพรูปลง และ ชื่อรูปภาพ
+        const imgRef = ref( //ประกาศ imgRef = อ้างอิงรูปภาพมาจาก Storage  และ  collection avatar  วันที่อัพรูปลง และ ชื่อรูปภาพ
           storage,
           `avatar/${new Date().getTime()} - ${img.name}`
         );
@@ -44,12 +44,12 @@ const Profile = () => {
             avatarPath: snap.ref.fullPath,
           });
 
-          setImg(""); //กำหนด ค่า เป็น null
+        setImg(""); //กำหนด ค่า เป็น null
         } catch (err) {
           console.log(err.message);
         }
       };
-      uploadImg(); //เรียก ฟังชั้น ที่ประสร้างขึ้นมา
+      uploadImg(); //เรียก ฟังชั้น ที่สร้างขึ้นมา
     }
   }, [img]);
 
